@@ -1,0 +1,46 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <h4>Tasks</h4>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="taskForm" (ngSubmit)="save()">
+
+            <mdb-form-control class="mt-2 mb-2">
+              <input mdbInput type="text" id="title" class="form-control" formControlName="title" />
+              <label mdbLabel class="form-label" for="title">Título da Task</label>
+            </mdb-form-control>
+            <div
+              *ngIf="(taskForm.controls['title'].invalid || taskForm.controls['title'].value === '') && (taskForm.controls['title'].touched || taskForm.controls['title'].dirty)"
+              class="text-danger small">
+              O título é obrigatório.
+            </div>
+            <mdb-form-control class="mt-2 mb-2">
+              <textarea mdbInput class="form-control mb-2" id="description" rows="4"
+                formControlName="description"></textarea>
+              <label mdbLabel class="form-label" for="description">Descrição da Task</label>
+
+            </mdb-form-control>
+            <div
+              *ngIf="(taskForm.controls['description'].invalid || taskForm.controls['description'].value === '') && (taskForm.controls['description'].touched || taskForm.controls['description'].dirty)"
+              class="text-danger small">
+              Descrição é obrigatória.
+            </div>
+            <input type="date" id="date" class="form-control" aria-label="Data" formControlName="date" />
+
+            <div class="form-check form-switch mt-2">
+              <input class="form-check-input" type="checkbox" formControlName="completed" role="switch"
+                id="flexSwitchCheck{{task.id}}" name="completed" />
+              <label class="form-check-label text-start" for="flexSwitchCheck{{task.id}}">
+                {{ task.completed ? 'Concluída' : 'Pendente' }}
+              </label>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="taskForm.invalid">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

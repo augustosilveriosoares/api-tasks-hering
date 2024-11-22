@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="border d-flex align-items-center justify-content-center p-5">
+          <div class="col">
+            <h5>Seja bem-vindo</h5>
+            <mdb-form-control class="">
+              <input mdbInput type="text" id="usuario" class="form-control" [(ngModel)]="login.username"/>
+              <label mdbLabel class="form-label" for="form1">Usuário</label>
+            </mdb-form-control>
+            <mdb-form-control class="mt-2">
+              <input mdbInput type="password" id="senha" class="form-control" [(ngModel)]="login.password"/>
+              <label mdbLabel class="form-label" for="form1">Senha</label>
+            </mdb-form-control>
+            <button type="button" class="btn btn-primary btn-rounded mt-2" mdbRipple (click)="logar()">Login</button>
+          </div>
+    </div>
+  </div>
+  <p><small>ROLE_ADMIN usuário[admin] senha: [hering]</small></p>
+    <p><small>ROLE_USER usuário[user] senha: [hering]</small></p>
+</div>
